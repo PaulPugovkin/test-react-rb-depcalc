@@ -1,9 +1,11 @@
-const App = () => {
-  return (
-    <div>
-      Hello!
-    </div>
-  )
-}
+import DepositCalculator from './views/DepositCalculator';
 
-export default App
+const App = () => {
+    return (
+        <div>
+            <DepositCalculator />
+        </div>
+    );
+};
+
+export default App;
