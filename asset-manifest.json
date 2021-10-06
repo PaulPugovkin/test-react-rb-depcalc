@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/test-react-rb-depcalc/static/css/main.fab35087.chunk.css",
+    "main.js": "/test-react-rb-depcalc/static/js/main.57a26b96.chunk.js",
+    "main.js.map": "/test-react-rb-depcalc/static/js/main.57a26b96.chunk.js.map",
+    "runtime-main.js": "/test-react-rb-depcalc/static/js/runtime-main.c80065de.js",
+    "runtime-main.js.map": "/test-react-rb-depcalc/static/js/runtime-main.c80065de.js.map",
+    "static/js/2.87b7759e.chunk.js": "/test-react-rb-depcalc/static/js/2.87b7759e.chunk.js",
+    "static/js/2.87b7759e.chunk.js.map": "/test-react-rb-depcalc/static/js/2.87b7759e.chunk.js.map",
+    "index.html": "/test-react-rb-depcalc/index.html",
+    "static/css/main.fab35087.chunk.css.map": "/test-react-rb-depcalc/static/css/main.fab35087.chunk.css.map",
+    "static/js/2.87b7759e.chunk.js.LICENSE.txt": "/test-react-rb-depcalc/static/js/2.87b7759e.chunk.js.LICENSE.txt",
+    "static/media/DepositInformation.module.css": "/test-react-rb-depcalc/static/media/info-icon.5661f320.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c80065de.js",
+    "static/js/2.87b7759e.chunk.js",
+    "static/css/main.fab35087.chunk.css",
+    "static/js/main.57a26b96.chunk.js"
+  ]
+}
