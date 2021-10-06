@@ -13,9 +13,14 @@ import Typography from '@mui/material/Typography';
 
 import { Slider, Box } from '@mui/material';
 
-const { getDepositByCode, getDepositMinPeriod, getDepositMinSumm } = deposit;
+const {
+    getDepositByCode,
+    getDepositMinPeriod,
+    getDepositMinSumm,
+    normalizeDay,
+} = deposit;
 
-const MAX_SUMM = 10000000;
+const MAX_SUMM = 100000000;
 
 const DepositProperties = () => {
     const { selectedDeposit } = useSelector(state => state.depositCalc);
@@ -36,12 +41,17 @@ const DepositProperties = () => {
 
     useEffect(() => {
         setMinSumm(getDepositMinSumm(depositType, userData));
+        setUserData(state => ({
+            ...state,
+            summ: getDepositMinSumm(depositType, userData),
+        }));
     }, [userData.period]);
 
     useEffect(() => {
         setUserData(state => ({
             ...state,
             period: getDepositMinPeriod(depositType),
+            summ: getDepositMinSumm(depositType, userData),
         }));
         setMinPeriod(getDepositMinPeriod(depositType));
     }, [selectedDeposit]);
@@ -63,7 +73,7 @@ const DepositProperties = () => {
                                 Срок вклада
                             </li>
                             <li className={styles['description-value']}>
-                                {userData.period}
+                                {normalizeDay(userData.period)}
                             </li>
                         </ul>
                         <Slider
@@ -71,6 +81,7 @@ const DepositProperties = () => {
                             name="period"
                             onChange={handleChange}
                             defaultValue={minPeriod}
+                            value={userData.period}
                             min={minPeriod}
                             max={356}
                         />
@@ -94,7 +105,14 @@ const DepositProperties = () => {
                                 Сумма вклада
                             </li>
                             <li className={styles['description-value']}>
-                                {userData?.summ.toLocaleString()} Р
+                                {userData.summ ? (
+                                    userData?.summ.toLocaleString('ru-RU', {
+                                        style: 'currency',
+                                        currency: 'RUB',
+                                    })
+                                ) : (
+                                    <span>load</span>
+                                )}{' '}
                             </li>
                         </ul>
                         <Slider
@@ -102,6 +120,7 @@ const DepositProperties = () => {
                             name="summ"
                             onChange={handleChange}
                             defaultValue={minSumm}
+                            value={userData.summ}
                             min={minSumm}
                             max={MAX_SUMM}
                             step={100000}

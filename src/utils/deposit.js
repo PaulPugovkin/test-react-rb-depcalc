@@ -59,6 +59,19 @@ const deposit = {
         });
         return depositRate[0];
     },
+    normalizeDay: period => {
+        const newArr = period.toString().split('');
+        const day = [2, 3, 4];
+        if (
+            Number(newArr[newArr.length - 1] + newArr[newArr.length - 2]) === 11
+        ) {
+            return `${period} дней`;
+        } else if (Number(newArr[newArr.length - 1]) === 1) {
+            return `${period} день`;
+        } else if (day.includes(Number(newArr[newArr.length - 1]))) {
+            return `${period} дня`;
+        } else return `${period} дней`;
+    },
 };
 
 export default deposit;

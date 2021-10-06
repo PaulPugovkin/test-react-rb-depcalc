@@ -6,7 +6,8 @@ import styles from './DepositResult.module.css';
 
 import deposit from '../../utils/deposit';
 
-const { getDepositRateBySummAndPeriod, getDepositByCode } = deposit;
+const { getDepositRateBySummAndPeriod, getDepositByCode, normalizeDay } =
+    deposit;
 
 const DepositResult = () => {
     const [rate, setRate] = useState();
@@ -24,8 +25,20 @@ const DepositResult = () => {
         setRate(getDepositRateBySummAndPeriod(deposit, userData));
     }, [period, summ]);
 
-    const depSumm = (((summ * rate) / 356) * period + summ).toLocaleString();
-    const profit = (((summ * rate) / 356) * period).toLocaleString();
+    const depSumm = (
+        (((summ / 100) * rate) / 356) * period +
+        summ
+    ).toLocaleString('ru-RU', {
+        style: 'currency',
+        currency: 'RUB',
+    });
+    const profit = ((((summ / 100) * rate) / 356) * period).toLocaleString(
+        'ru-RU',
+        {
+            style: 'currency',
+            currency: 'RUB',
+        },
+    );
 
     return (
         <>
@@ -39,7 +52,7 @@ const DepositResult = () => {
                     </li>
                     <li className={styles['item']}>
                         <span className={styles['item-title']}>
-                            Сумма через <span>{period} дней</span>
+                            Сумма через <span>{normalizeDay(period)}</span>
                         </span>
                         <p className={styles['result']}>{depSumm}</p>
                     </li>
