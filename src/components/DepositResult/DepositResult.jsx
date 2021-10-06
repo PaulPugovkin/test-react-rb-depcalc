@@ -52,7 +52,8 @@ const DepositResult = () => {
                     </li>
                     <li className={styles['item']}>
                         <span className={styles['item-title']}>
-                            Сумма через <span>{normalizeDay(period)}</span>
+                            Сумма через{' '}
+                            <span>{period && normalizeDay(period)}</span>
                         </span>
                         <p className={styles['result']}>{depSumm}</p>
                     </li>
