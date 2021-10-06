@@ -45,7 +45,20 @@ const deposit = {
         });
         return minSumm[0];
     },
+    getDepositRateBySummAndPeriod: (data, userData) => {
+        const depositRate = [];
+        data.map(({ period_from, summs_and_rate }) => {
+            if (deposit.getSelectedPeriod(data, userData) === period_from) {
+                summs_and_rate.map(({ summ_from, rate }) => {
+                    if (userData.summ - summ_from >= 0) {
+                        depositRate.splice(0, 1, rate);
+                        return depositRate;
+                    }
+                });
+            }
+        });
+        return depositRate[0];
+    },
 };
 
-// перебираемая сумма меньше значения пользователя
 export default deposit;

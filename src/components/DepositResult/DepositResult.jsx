@@ -1,15 +1,31 @@
+import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+
 import { Box } from '@mui/material';
 import styles from './DepositResult.module.css';
 
-import { useSelector } from 'react-redux';
+import deposit from '../../utils/deposit';
+
+const { getDepositRateBySummAndPeriod, getDepositByCode } = deposit;
 
 const DepositResult = () => {
+    const [rate, setRate] = useState();
+    const { selectedDeposit } = useSelector(state => state.depositCalc);
+
+    const deposit = getDepositByCode(selectedDeposit);
+
     const { summ, period } = useSelector(
         state => state.depositCalc.selectedProperties,
     );
 
-    const depSumm = (((summ * 0.05) / 356) * period + summ).toLocaleString();
-    const profit = (((summ * 0.05) / 356) * period).toLocaleString();
+    const userData = { summ, period };
+
+    useEffect(() => {
+        setRate(getDepositRateBySummAndPeriod(deposit, userData));
+    }, [period, summ]);
+
+    const depSumm = (((summ * rate) / 356) * period + summ).toLocaleString();
+    const profit = (((summ * rate) / 356) * period).toLocaleString();
 
     return (
         <>
@@ -19,7 +35,7 @@ const DepositResult = () => {
                         <span className={styles['item-title']}>
                             Процентная ставка
                         </span>
-                        <p className={styles['result']}>5%</p>
+                        <p className={styles['result']}>{rate}%</p>
                     </li>
                     <li className={styles['item']}>
                         <span className={styles['item-title']}>
