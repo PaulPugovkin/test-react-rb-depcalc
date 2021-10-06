@@ -1,0 +1,39 @@
+.list {
+    width: 533px;
+
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.item {
+    margin: 0;
+    padding: 0;
+}
+
+.item-title {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+
+    color: #7e878e;
+}
+
+.result {
+    margin: 5px 0 0 0;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 36px;
+    /* identical to box height */
+
+    color: #000000;
+}

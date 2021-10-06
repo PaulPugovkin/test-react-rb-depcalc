@@ -1,0 +1,49 @@
+.logo {
+    object-fit: cover;
+    background-image: url('../../images/credit.webp');
+
+    margin-top: 120px;
+}
+
+.offer {
+    width: 340px;
+    display: flex;
+    align-items: baseline;
+    flex: row;
+
+    margin-top: 70px;
+
+    border: 1px solid rgba(180, 214, 236, 1);
+}
+
+.text {
+    position: relative;
+
+    padding: 12px 27px 8px 58px;
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    /* or 114% */
+
+    color: #7c878e;
+}
+
+.text::before {
+    content: '';
+
+    position: absolute;
+    top: 12px;
+    left: 12px;
+
+    width: 21px;
+    height: 21px;
+
+    object-fit: contain;
+    object-position: center;
+    background-image: url('../../images/icons/info-icon.svg');
+}
+
+.icon {
+}

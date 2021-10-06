@@ -1,0 +1,48 @@
+.slider-description {
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+
+    margin-bottom: 15px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.description-title {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 18px;
+    /* identical to box height, or 112% */
+
+    color: #000000;
+}
+
+.description-value {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 18px;
+    /* identical to box height, or 82% */
+
+    text-align: right;
+
+    color: #000000;
+}
+
+.slider {
+    position: relative;
+}
+
+.tooltip {
+    font-size: 14px;
+    line-height: 16px;
+    min-width: 24px;
+    padding: 4px 8px;
+    background: #f1f5f7;
+    border-radius: 12px;
+}

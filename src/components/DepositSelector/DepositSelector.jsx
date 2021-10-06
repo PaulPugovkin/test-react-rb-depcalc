@@ -1,26 +1,36 @@
 import { useState } from 'react';
-import {
-    Box,
-    InputLabel,
-    MenuItem,
-    FormControl,
-    Select,
-} from '@material-ui/core';
+import { useDispatch } from 'react-redux';
+import { userDepositType } from '../../redux/deposit/deposit-actions';
+
+import { Box, InputLabel, MenuItem, FormControl, Select } from '@mui/material';
+
+import styles from './DepositSelector.module.css';
+
 import data from '../../data/depcalc.json';
 
 const { deposits } = data;
 
-const DepositSelector = () => {
+const DepositSelector = ({ title }) => {
+    const dispatch = useDispatch();
+
     const [depositType, setDepositType] = useState('');
 
     const handleChange = event => {
         setDepositType(event.target.value);
+        dispatch(userDepositType(event.target.value));
     };
 
     return (
         <>
-            <Box>
-                <FormControl fullWidth>
+            <h2>{title}</h2>
+            <Box
+                sx={{
+                    width: '490px',
+                    marginTop: '34px',
+                    marginBottom: '34px',
+                }}
+            >
+                <FormControl fullWidth className={styles.form}>
                     <InputLabel id="demo-simple-select-label">
                         Выберите вклад
                     </InputLabel>
@@ -28,11 +38,11 @@ const DepositSelector = () => {
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
                         value={depositType}
-                        label="Вклад"
+                        label="Выберите вклад"
                         onChange={handleChange}
                     >
                         {deposits.map(({ code, name }) => (
-                            <MenuItem key={code} value={name}>
+                            <MenuItem key={code} value={code}>
                                 {name}
                             </MenuItem>
                         ))}
