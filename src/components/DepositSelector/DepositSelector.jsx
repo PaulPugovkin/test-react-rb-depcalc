@@ -13,7 +13,7 @@ const { deposits } = data;
 const DepositSelector = ({ title }) => {
     const dispatch = useDispatch();
 
-    const [depositType, setDepositType] = useState('');
+    const [depositType, setDepositType] = useState('standart');
 
     const handleChange = event => {
         setDepositType(event.target.value);
