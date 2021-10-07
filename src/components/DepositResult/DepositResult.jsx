@@ -23,7 +23,7 @@ const DepositResult = () => {
 
     useEffect(() => {
         setRate(getDepositRateBySummAndPeriod(deposit, userData));
-    }, [period, summ]);
+    }, [period, summ, selectedDeposit]);
 
     const depSumm = (
         (((summ / 100) * rate) / 356) * period +

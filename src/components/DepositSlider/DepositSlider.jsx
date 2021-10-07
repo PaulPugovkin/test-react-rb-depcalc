@@ -22,7 +22,7 @@ const {
 
 const MAX_SUMM = 100000000;
 
-const DepositProperties = () => {
+const DepositSlider = () => {
     const { selectedDeposit } = useSelector(state => state.depositCalc);
     const [minPeriod, setMinPeriod] = useState(1);
     const [minSumm, setMinSumm] = useState();
@@ -43,15 +43,24 @@ const DepositProperties = () => {
         setMinSumm(getDepositMinSumm(depositType, userData));
         setUserData(state => ({
             ...state,
-            summ: getDepositMinSumm(depositType, userData),
+            summ:
+                getDepositMinSumm(depositType, userData) < state.summ
+                    ? state.summ
+                    : getDepositMinSumm(depositType, userData),
         }));
     }, [userData.period]);
 
     useEffect(() => {
         setUserData(state => ({
             ...state,
-            period: getDepositMinPeriod(depositType),
-            summ: getDepositMinSumm(depositType, userData),
+            period:
+                getDepositMinPeriod(depositType) < state.period
+                    ? state.period
+                    : getDepositMinPeriod(depositType),
+            summ:
+                getDepositMinSumm(depositType, userData) < state.summ
+                    ? state.summ
+                    : getDepositMinSumm(depositType, userData),
         }));
         setMinPeriod(getDepositMinPeriod(depositType));
     }, [selectedDeposit]);
@@ -174,4 +183,4 @@ const HtmlTooltip = styled(({ className, ...props }) => (
     },
 }));
 
-export default DepositProperties;
+export default DepositSlider;
