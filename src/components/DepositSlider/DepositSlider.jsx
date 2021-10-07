@@ -20,7 +20,7 @@ const {
     normalizeDay,
 } = deposit;
 
-const MAX_SUMM = 100000000;
+const MAX_SUMM = 99999999;
 
 const DepositSlider = () => {
     const { selectedDeposit } = useSelector(state => state.depositCalc);
@@ -51,6 +51,7 @@ const DepositSlider = () => {
     }, [userData.period]);
 
     useEffect(() => {
+        setMinSumm(getDepositMinSumm(depositType, userData));
         setUserData(state => ({
             ...state,
             period:
@@ -58,9 +59,9 @@ const DepositSlider = () => {
                     ? state.period
                     : getDepositMinPeriod(depositType),
             summ:
-                getDepositMinSumm(depositType, userData) < state.summ
-                    ? state.summ
-                    : getDepositMinSumm(depositType, userData),
+                getDepositMinSumm(depositType, userData) > state.summ
+                    ? getDepositMinSumm(depositType, userData)
+                    : state.summ,
         }));
         setMinPeriod(getDepositMinPeriod(depositType));
     }, [selectedDeposit]);

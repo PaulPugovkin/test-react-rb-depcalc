@@ -1,17 +1,23 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 
 import { Box } from '@mui/material';
 import styles from './DepositResult.module.css';
+import Modal from '../Modal';
 
 import deposit from '../../utils/deposit';
+
+import { modal } from '../../redux/deposit/deposit-actions.js';
 
 const { getDepositRateBySummAndPeriod, getDepositByCode, normalizeDay } =
     deposit;
 
 const DepositResult = () => {
+    const dispatch = useDispatch();
+
     const [rate, setRate] = useState();
     const { selectedDeposit } = useSelector(state => state.depositCalc);
+    const { isModal } = useSelector(state => state.depositCalc);
 
     const deposit = getDepositByCode(selectedDeposit);
 
@@ -40,6 +46,18 @@ const DepositResult = () => {
         },
     );
 
+    const handleBackdropClick = e => {
+        if (e.target.classList.contains('Overlay')) resetModal();
+        return;
+    };
+
+    const handleKeydown = e => {
+        if (e.code === 'Escape') resetModal();
+        window.removeEventListener('keydown', handleKeydown);
+    };
+
+    const resetModal = () => dispatch(modal(false));
+
     return (
         <>
             <Box>
@@ -53,7 +71,13 @@ const DepositResult = () => {
                     <li className={styles['item']}>
                         <span className={styles['item-title']}>
                             Сумма через{' '}
-                            <span>{period && normalizeDay(period)}</span>
+                            <button
+                                onClick={() => {
+                                    dispatch(modal(true));
+                                }}
+                            >
+                                {period && normalizeDay(period)}
+                            </button>
                         </span>
                         <p className={styles['result']}>{depSumm}</p>
                     </li>
@@ -63,6 +87,7 @@ const DepositResult = () => {
                     </li>
                 </ul>
             </Box>
+            {isModal && <Modal depSumm={depSumm} profit={profit} rate={rate} />}
         </>
     );
 };
