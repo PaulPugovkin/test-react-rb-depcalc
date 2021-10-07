@@ -83,7 +83,7 @@ const DepositProperties = () => {
                             defaultValue={minPeriod}
                             value={userData.period}
                             min={minPeriod}
-                            max={356}
+                            max={365}
                         />
                         <HtmlTooltip
                             title={
