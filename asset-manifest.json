@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/test-react-rb-depcalc/static/css/main.da45fbc8.chunk.css",
+    "main.css": "/test-react-rb-depcalc/static/css/main.c4c7e780.chunk.css",
     "main.js": "/test-react-rb-depcalc/static/js/main.abe9288d.chunk.js",
     "main.js.map": "/test-react-rb-depcalc/static/js/main.abe9288d.chunk.js.map",
     "runtime-main.js": "/test-react-rb-depcalc/static/js/runtime-main.c80065de.js",
@@ -8,14 +8,14 @@
     "static/js/2.47a5c5d0.chunk.js": "/test-react-rb-depcalc/static/js/2.47a5c5d0.chunk.js",
     "static/js/2.47a5c5d0.chunk.js.map": "/test-react-rb-depcalc/static/js/2.47a5c5d0.chunk.js.map",
     "index.html": "/test-react-rb-depcalc/index.html",
-    "static/css/main.da45fbc8.chunk.css.map": "/test-react-rb-depcalc/static/css/main.da45fbc8.chunk.css.map",
+    "static/css/main.c4c7e780.chunk.css.map": "/test-react-rb-depcalc/static/css/main.c4c7e780.chunk.css.map",
     "static/js/2.47a5c5d0.chunk.js.LICENSE.txt": "/test-react-rb-depcalc/static/js/2.47a5c5d0.chunk.js.LICENSE.txt",
     "static/media/DepositInformation.module.css": "/test-react-rb-depcalc/static/media/info-icon.5661f320.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.c80065de.js",
     "static/js/2.47a5c5d0.chunk.js",
-    "static/css/main.da45fbc8.chunk.css",
+    "static/css/main.c4c7e780.chunk.css",
     "static/js/main.abe9288d.chunk.js"
   ]
 }
