@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/test-react-rb-depcalc/static/css/main.fab35087.chunk.css",
-    "main.js": "/test-react-rb-depcalc/static/js/main.39f2d3a0.chunk.js",
-    "main.js.map": "/test-react-rb-depcalc/static/js/main.39f2d3a0.chunk.js.map",
+    "main.css": "/test-react-rb-depcalc/static/css/main.da45fbc8.chunk.css",
+    "main.js": "/test-react-rb-depcalc/static/js/main.abe9288d.chunk.js",
+    "main.js.map": "/test-react-rb-depcalc/static/js/main.abe9288d.chunk.js.map",
     "runtime-main.js": "/test-react-rb-depcalc/static/js/runtime-main.c80065de.js",
     "runtime-main.js.map": "/test-react-rb-depcalc/static/js/runtime-main.c80065de.js.map",
-    "static/js/2.839c56bd.chunk.js": "/test-react-rb-depcalc/static/js/2.839c56bd.chunk.js",
-    "static/js/2.839c56bd.chunk.js.map": "/test-react-rb-depcalc/static/js/2.839c56bd.chunk.js.map",
+    "static/js/2.47a5c5d0.chunk.js": "/test-react-rb-depcalc/static/js/2.47a5c5d0.chunk.js",
+    "static/js/2.47a5c5d0.chunk.js.map": "/test-react-rb-depcalc/static/js/2.47a5c5d0.chunk.js.map",
     "index.html": "/test-react-rb-depcalc/index.html",
-    "static/css/main.fab35087.chunk.css.map": "/test-react-rb-depcalc/static/css/main.fab35087.chunk.css.map",
-    "static/js/2.839c56bd.chunk.js.LICENSE.txt": "/test-react-rb-depcalc/static/js/2.839c56bd.chunk.js.LICENSE.txt",
+    "static/css/main.da45fbc8.chunk.css.map": "/test-react-rb-depcalc/static/css/main.da45fbc8.chunk.css.map",
+    "static/js/2.47a5c5d0.chunk.js.LICENSE.txt": "/test-react-rb-depcalc/static/js/2.47a5c5d0.chunk.js.LICENSE.txt",
     "static/media/DepositInformation.module.css": "/test-react-rb-depcalc/static/media/info-icon.5661f320.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.c80065de.js",
-    "static/js/2.839c56bd.chunk.js",
-    "static/css/main.fab35087.chunk.css",
-    "static/js/main.39f2d3a0.chunk.js"
+    "static/js/2.47a5c5d0.chunk.js",
+    "static/css/main.da45fbc8.chunk.css",
+    "static/js/main.abe9288d.chunk.js"
   ]
 }
