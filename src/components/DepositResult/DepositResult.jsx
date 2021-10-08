@@ -72,6 +72,7 @@ const DepositResult = () => {
                         <span className={styles['item-title']}>
                             Сумма через{' '}
                             <button
+                                className={styles['item-period']}
                                 onClick={() => {
                                     dispatch(modal(true));
                                 }}

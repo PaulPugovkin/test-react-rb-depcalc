@@ -37,3 +37,12 @@
 
     color: #000000;
 }
+
+.item-period {
+    cursor: pointer;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    border: none;
+    color: #489dcf;
+}

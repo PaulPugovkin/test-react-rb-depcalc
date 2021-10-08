@@ -1,0 +1,80 @@
+.printTitle {
+    margin-top: 50px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 36px;
+    /* identical to box height */
+
+    color: #000000;
+}
+
+.resultList {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.resultItem {
+    margin-bottom: 5px;
+
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.item {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.buttonsWrapper {
+    width: 600px;
+
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 auto;
+}
+
+.closeButton {
+    padding: 15px 30px;
+
+    cursor: pointer;
+
+    background-color: #489dcf;
+
+    color: #fff;
+
+    font-size: 20px;
+    font-weight: normal;
+
+    border: 1px solid transparent;
+    border-radius: 20px;
+    outline: none;
+
+    transition: linear 0.2s;
+}
+
+.printButton {
+    composes: closeButton;
+}
+
+.closeButton:hover,
+.printButton:hover {
+    background-color: #fff;
+    color: #000000;
+    border: 1px solid #489dcf;
+}
+
+p {
+    padding: 0;
+    margin: 0;
+    font-size: 10px;
+}
+
+@media print {
+    .closeButton,
+    .printButton {
+        display: none;
+    }
+}
