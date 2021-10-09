@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 import { Box } from '@mui/material';
 import styles from './DepositResult.module.css';
@@ -46,18 +47,6 @@ const DepositResult = () => {
         },
     );
 
-    const handleBackdropClick = e => {
-        if (e.target.classList.contains('Overlay')) resetModal();
-        return;
-    };
-
-    const handleKeydown = e => {
-        if (e.code === 'Escape') resetModal();
-        window.removeEventListener('keydown', handleKeydown);
-    };
-
-    const resetModal = () => dispatch(modal(false));
-
     return (
         <>
             <Box>
@@ -91,6 +80,38 @@ const DepositResult = () => {
             {isModal && <Modal depSumm={depSumm} profit={profit} rate={rate} />}
         </>
     );
+};
+
+DepositResult.propTypes = {
+    styles: PropTypes.object,
+    rate: PropTypes.number,
+    selectedDeposit: PropTypes.string,
+    isModal: PropTypes.bool,
+    deposit: PropTypes.arrayOf(
+        PropTypes.shape({
+            code: PropTypes.string,
+            name: PropTypes.string,
+            param: PropTypes.arrayOf(
+                PropTypes.shape({
+                    period_from: PropTypes.number,
+                    summs_and_rate: PropTypes.arrayOf(
+                        PropTypes.shape({
+                            summ_from: PropTypes.number,
+                            rate: PropTypes.number,
+                        }),
+                    ),
+                }),
+            ),
+        }),
+    ),
+    summ: PropTypes.number,
+    period: PropTypes.number,
+    userData: PropTypes.shape({
+        period: PropTypes.number,
+        summ: PropTypes.number,
+    }),
+    depSumm: PropTypes.string,
+    profit: PropTypes.string,
 };
 
 export default DepositResult;

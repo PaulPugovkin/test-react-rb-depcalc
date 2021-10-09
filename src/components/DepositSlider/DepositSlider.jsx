@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { userDepositProperties } from '../../redux/deposit/deposit-actions';
+import PropTypes from 'prop-types';
 
 import deposit from '../../utils/deposit';
 
@@ -183,5 +184,31 @@ const HtmlTooltip = styled(({ className, ...props }) => (
         boxShadow: '0px 5px 21px rgba(0, 0, 0, 0.1)',
     },
 }));
+
+DepositSlider.propTypes = {
+    deposit: PropTypes.objectOf(PropTypes.func),
+    MAX_SUMM: PropTypes.number,
+    selectedDeposit: PropTypes.string,
+    minPeriod: PropTypes.number,
+    setMinPeriod: PropTypes.func,
+    minSumm: PropTypes.number,
+    setMinSumm: PropTypes.func,
+    userData: PropTypes.shape({
+        period: PropTypes.number,
+        summ: PropTypes.number,
+    }),
+    setUserData: PropTypes.func,
+    depositType: PropTypes.arrayOf(
+        PropTypes.shape({
+            period_from: PropTypes.number,
+            summs_and_rate: PropTypes.arrayOf(
+                PropTypes.shape({
+                    summ_from: PropTypes.number,
+                    rate: PropTypes.number,
+                }),
+            ),
+        }),
+    ),
+};
 
 export default DepositSlider;

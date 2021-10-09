@@ -1,6 +1,9 @@
 import { createPortal } from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import { modal } from '../../redux/deposit/deposit-actions';
+
 import styles from './Modal.module.css';
 import deposit from '../../utils/deposit';
 
@@ -90,6 +93,15 @@ const Modal = props => {
         </div>,
         modalRoot,
     );
+};
+
+Modal.propTypes = {
+    normalizeDay: PropTypes.func,
+    depSumm: PropTypes.string,
+    profit: PropTypes.string,
+    rate: PropTypes.number,
+    period: PropTypes.number,
+    summ: PropTypes.number,
 };
 
 export default Modal;

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { userDepositType } from '../../redux/deposit/deposit-actions';
+import PropTypes from 'prop-types';
 
 import { Box, InputLabel, MenuItem, FormControl, Select } from '@mui/material';
 
@@ -51,6 +52,30 @@ const DepositSelector = ({ title }) => {
             </Box>
         </>
     );
+};
+
+DepositSelector.propTypes = {
+    styles: PropTypes.object,
+    deposit: PropTypes.arrayOf(
+        PropTypes.shape({
+            code: PropTypes.string,
+            name: PropTypes.string,
+            param: PropTypes.arrayOf(
+                PropTypes.shape({
+                    period_from: PropTypes.number,
+                    summs_and_rate: PropTypes.arrayOf(
+                        PropTypes.shape({
+                            summ_from: PropTypes.number,
+                            rate: PropTypes.number,
+                        }),
+                    ),
+                }),
+            ),
+        }),
+    ),
+    depositType: PropTypes.string,
+    handleChange: PropTypes.func,
+    title: PropTypes.string,
 };
 
 export default DepositSelector;
